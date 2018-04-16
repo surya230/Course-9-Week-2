@@ -1,0 +1,32 @@
+---
+title: "JHU Data Science Course 9 Project 1: Leaflet"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background
+
+This is a simple web page created with RMarkdown that features a Leaflet-created map of a section of Manhattan. The neighborhood of Greenwich Village is shown, with the famous Blue Note Jazz Club highlighted.
+
+## April 16, 2018.
+
+```{r, echo=TRUE}
+options( warn = -1 )
+library(leaflet)
+
+content <- paste(sep = "<br/>",
+                 "<b><a href='http://www.bluenote.net/newyork/index.shtml'>Blue Note Jazz Club</a></b>",
+                 "131 W. 3rd St",
+                 "New York, NY  10012"
+                 )
+
+m <- leaflet() %>% addTiles() %>%
+     addPopups(lat=40.7309, lng=-74.0007, content, options = popupOptions(closeButton = FALSE) )
+m # print the map
+```
+
